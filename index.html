@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <title>Event Calendar</title>
+</head>
+<body>
+    <div id="event-calendar">
+        <label for="start">Start date:</label>
+        <input type="date" id="start" name="trip-start" value="2024-07-22" min="2000-01-01" max="2030-12-31">
+        <button id="search-btn">Search Events</button>
+        <div id="event-details"></div> </div>
+
+    <script>
+        // JSON data with event information
+        const eventsData = [
+            {
+                date: "2024-04-14",
+                eventName: "Vasant Panchami",
+                eventDescription: "Spring's arrival is celebrated with yellow kites soaring, Saraswati worshipped for knowledge, and sweet treats enjoyed in a vibrant festival of colors.",
+                location: "Shantiniketan,WB"
+            },
+            {
+               date : "2024-03-25",
+               eventName: "Holi",
+               eventDescription: "Join us for a vibrant celebration of colors and culture at our Holi event filled with music, dance, and joy!", 
+               location: "Mathura and Vrindavan",
+            },
+            {
+              date:"2024-03-31",
+              eventName:"Easter Day",
+              eventDescription:"Christians celebrate Easter Sunday, marking Jesus' resurrection and the triumph of life over death",
+              location:"Goa",
+
+            },
+            {
+              date:"2024-04-09",
+              eventName:"Gudi Padva",
+              eventDescription:"Gudi Padva celebrates new beginnings with vibrant processions, colorful silk banners  and sweet mango treats.",
+              location:"Mumbai",
+            },
+            {
+              date:"2024-04-10",
+              eventName:"ugadhi",
+              eventDescription:"Ugadi rings in the Telugu New Year with prayers, neem and jaggery concoctions, and vibrant cultural celebrations.",
+              location:"Vijayawada,AP",
+            },
+            {
+              date:"2024-04-17",
+              eventName:"Rama Navami",
+              eventDescription:"Hindu festival celebrating the birth of Lord Rama, marked by prayers, processions, and reenactments of his life story.",
+              location:"Ayodhya,UP",
+            },
+            {
+              date:"2024-04-11",
+              eventName:"Ramzan Eid",
+              eventDescription:"Eid al-Fitr celebration featuring traditional feasts, prayers, and communal gatherings marking the end of Ramadan.",
+              location:"Jama Masjid,Delhi"
+            }
+
+            // Add more events here...
+        ];
+
+        // Event search function
+        function searchEvents(selectedDate) {
+            // Find matching event (if any)
+            const matchingEvent = eventsData.find(event => event.date === selectedDate);
+
+            // Display event details or a message if no event is found
+            const eventDetailsContainer = document.getElementById("event-details");
+            if (matchingEvent) {
+                eventDetailsContainer.innerHTML = `
+                    <h2>${matchingEvent.eventName}</h2>
+                    <p>${matchingEvent.eventDescription}</p>
+                    <p>Location: ${matchingEvent.location}</p>
+                `;
+            } else {
+                eventDetailsContainer.innerHTML = '<p>No event found for the selected date.</p>';
+            }
+        }
+
+        // Add event listener to the calendar button
+        const calendarButton = document.getElementById("search-btn");
+        calendarButton.addEventListener("click", () => {
+            const selectedDate = document.getElementById("start").value; // Get the selected date
+            searchEvents(selectedDate);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+:root {
+  --primary-color: #4CAF50;
+  --text-color: #333;
+  --font-family: sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+}
+
+#event-calendar {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#event-calendar label,
+#event-calendar input,
+#search-btn {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#search-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#event-details {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+#event-details h2 {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#event-details p {
+  margin-bottom: 5px;
+}
